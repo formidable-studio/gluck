@@ -1,0 +1,196 @@
+/* 
+
+CSS GLUCK
+
+*/
+body {
+  font-family:  "proxima-nova", sans-serif;
+  background: #eef5f2;
+  margin: 0;
+}
+p {
+  margin: 0 0 1em;
+}
+#content {
+  width: 1024px;
+  background: #6F0;
+  position: relative;
+  margin: auto;
+}
+/* MENU */
+#nav {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 784px;
+  height: 40px;
+  color: #eee;
+  position: relative;
+  z-index: 900;
+  list-style: none;
+  background: #FFF;
+  padding-left: 240px;
+}
+#nav li {
+  float: left;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+#nav li a {
+  display: inline-block;
+  color: transparent;
+  height: 40px;
+}
+#nav li #btn_accueil {
+  background: url(../images/menu.png) -240px 0px;
+  width: 50px;
+}
+#nav li #btn_accueil:hover {
+  background: url(../images/menu.png) -240px 40px;
+}
+#nav li #btn_boutique {
+  background: url(../images/menu.png) -290px 0px;
+  width: 100px;
+}
+#nav li #btn_boutique:hover {
+  background: url(../images/menu.png) -290px 40px;
+}
+#nav li #btn_collections {
+  background: url(../images/menu.png) -390px 0px;
+  width: 130px;
+}
+#nav li #btn_collections:hover {
+  background: url(../images/menu.png) -390px 40px;
+}
+#nav li #btn_actus {
+  background: url(../images/menu.png) -520px 0px;
+  width: 80px;
+}
+#nav li #btn_actus:hover {
+  background: url(../images/menu.png) -520px 40px;
+}
+#nav li #btn_gluck {
+  background: url(../images/menu.png) -600px 0px;
+  width: 90px;
+}
+#nav li #btn_gluck:hover {
+  background: url(../images/menu.png) -600px 40px;
+}
+#nav li #btn_contact {
+  background: url(../images/menu.png) -690px 0px;
+  width: 100px;
+}
+#nav li #btn_contact:hover {
+  background: url(../images/menu.png) -690px 40px;
+}
+/* PANNEAUX */
+.rubrique {
+  width: 1024px;
+  height: 688px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+#accueil {
+  background: #FFF;
+}
+#boutique {
+  background: #F69;
+  height: auto;
+}
+
+#boutique .conteneur{
+}
+
+#boutique .conteneur .article{
+	width:20%;
+	float:left;
+	background:#C00;
+}
+
+#boutique .conteneur .article .détail{
+	margin:10px;
+	background:#3F9;
+}
+
+#boutique .conteneur .article .détail img{
+	height:300px;
+	width:100%;
+}
+
+#boutique .conteneur .article .détail h3{
+}
+
+#collections{
+	overflow:auto;
+	height:556px;
+}
+
+#collections #collection_defil {
+	height:540px;
+}
+#collections #collection_defil div.article {
+  width: 360px;
+  height: 540px;
+  background: #CCC;
+  position: relative;
+  float: left;
+  margin-right:10px;
+}
+#collections #collection_defil div.article:last-child {
+  margin-right:0px;
+}
+#collections #collection_defil div.article img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#collections #collection_defil div.article .description {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  right: 20px;
+  padding: 150px 20px 20px;
+  background: rgba(146, 245, 200, 0.74);
+  opacity: 0;
+}
+#collections #collection_defil div.article:hover .description {
+  opacity: 100;
+}
+#collections #collection_defil div.article:hover .description img{
+  margin-top:230px;
+  margin-left:20px;
+}
+#collections {
+  background: #fff;
+}
+#wasistgluck{
+	background:#fff;
+}
+#contact {
+  background: #fff;
+}
+/* FLEURS */
+#fleur2 {
+  left: 300px;
+}
+#fleur3 {
+  left: 100px;
+}
+#fleur4 {
+  left: -500px;
+  z-index: 300;
+}
+/* SCROLL BOTTOM */
+#scroll-button {
+  text-align: center;
+  border-bottom: solid 10px rgba(254, 228, 157, 0.54);
+  position: fixed;
+  z-index: 400;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

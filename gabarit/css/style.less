@@ -1,0 +1,209 @@
+/* 
+
+CSS GLUCK
+
+*/
+
+@largeurecran : 1024px;
+
+body {
+	font-family: sans-serif;
+	background: #EBD9D0;
+	margin:0;
+}
+
+p{
+	margin:0 0 1em;
+}
+
+
+#content {
+	width: @largeurecran;
+	background: #6F0;
+	position:relative;
+	margin: auto;
+}
+
+
+/* MENU */
+#nav {
+	display: block;
+	padding: 0;
+	margin: 0;
+	width: 784px;
+	height:40px;
+	
+	color: #eee;
+	position:relative;
+	z-index:900;
+	list-style:none;
+	
+	background:#FFF;
+	
+	//padding-left:240px;
+	padding-left:240px;
+
+	li {
+		float:left;
+		padding: 0;
+		margin: 0;
+		display:inline-block;
+		
+		@decal-y : 40px;
+
+		a{
+			display:inline-block;
+			color:transparent;
+			height:@decal-y;
+
+		}
+
+
+		@decal-accueil : 240px;
+		#btn_accueil{
+			background: url(../images/menu.png) -@decal-accueil 0px;
+			width:50px;
+		}
+		#btn_accueil:hover{
+			background: url(../images/menu.png) -@decal-accueil @decal-y;
+		}
+
+		@decal-boutique : 290px;
+		#btn_boutique{
+			background: url(../images/menu.png) -@decal-boutique 0px;
+			width:100px;
+		}
+		#btn_boutique:hover{
+			background: url(../images/menu.png) -@decal-boutique @decal-y;
+		}
+
+		@decal-collection : 390px;
+		#btn_collections{
+			background: url(../images/menu.png) -@decal-collection 0px;
+			width:130px;
+		}
+		#btn_collections:hover{
+			background: url(../images/menu.png) -@decal-collection @decal-y;
+		}
+
+		@decal-actu : 520px;
+		#btn_actus{
+			background: url(../images/menu.png) -@decal-actu 0px;
+			width:80px;
+		}
+		#btn_actus:hover{
+			background: url(../images/menu.png) -@decal-actu @decal-y;
+		}
+
+		@decal-gluck : 600px;
+		#btn_gluck{
+			background: url(../images/menu.png) -@decal-gluck 0px;
+			width:90px;
+		}
+		#btn_gluck:hover{
+			background: url(../images/menu.png) -@decal-gluck @decal-y;
+		}
+
+		@decal-contact : 690px;
+		#btn_contact{
+			background: url(../images/menu.png) -@decal-contact 0px;
+			width:100px;
+		}
+		#btn_contact:hover{
+			background: url(../images/menu.png) -@decal-contact @decal-y;
+		}	
+	}
+}
+
+
+
+
+
+/* PANNEAUX */
+.rubrique {
+	width: @largeurecran;
+	height: 688px;
+	margin:0;
+	padding: 0;
+	overflow:hidden;
+	position:relative;
+}
+
+#accueil {
+	background:#FFF;
+}
+#boutique {
+	background: #F69;
+	height: 570px;
+
+	#boutique_defil{
+		height: 570px;
+		width: 350*5px;
+
+		div.article{
+			width: 350px;
+			height: 530px;
+			background: #CCC;
+			position: relative;
+			float: left;
+
+			img{
+				position: absolute;
+				background: #00D;
+				top:0;
+				left: 0;
+			}
+
+			.description{
+				position: absolute;
+				top: 20px;
+				left: 20px;
+				bottom: 20px;
+				right: 20px;
+				padding: 150px 20px 20px;
+				background: rgba(146,245,200,0.74);
+				opacity: 0;
+			}
+
+			
+		}
+		div.article:hover{
+			.description{
+				opacity:100;
+			}
+
+		}
+	}
+}
+#collections {
+	background: #CC6;
+}
+#contact {
+	background: #FF0;
+}
+/* FLEURS */
+#fleur2{
+	left:300px;
+}
+
+#fleur3{
+	left:100px;
+}
+
+#fleur4{
+	left:-500px;
+	z-index:300;
+}
+
+
+/* SCROLL BOTTOM */
+#scroll-button{
+	text-align:center;
+	border-bottom:solid 10px rgba(254,228,157,0.54);
+	position:fixed;
+	z-index:400;
+	bottom:0;
+	left:0;
+	right:0;
+}
+
