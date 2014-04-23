@@ -116,7 +116,7 @@ p {
 	font-family:'brandon-grotesque', Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
-	font-weight: 700;
+	font-weight: 500;
 }
 
 #btn_panier{
@@ -746,7 +746,7 @@ p {
 
 #shopp .right p.headline big{
 	font-size: inherit;
-	font-weight: 700;
+	font-weight: 500;
 }
 
 
