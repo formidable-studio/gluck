@@ -1,6 +1,6 @@
 <!-- CART -->
 <?php if (shopp('cart','hasitems')): ?>
-<form id="cart" action="<?php shopp('cart','url'); ?>" method="post">
+<form id="cart" action="<?php shopp('cart','url'); ?>" method="post" class="shoppform">
 <big>
 	<a href="<?php bloginfo('url'); ?>/">< Continuez votre shopping</a>
 	<!--<a href="<?php shopp('cart','referrer'); ?>">< Continuez votre shopping</a>-->

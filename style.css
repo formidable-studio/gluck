@@ -105,12 +105,13 @@ a:hover, a.active{
  	display: block;
  	padding: 0;
  	margin: auto;
- 	width: 860px;
+ 	/*width: 860px;*/
  	height: 40px;
  	color: #eee;
  	list-style: none;
  	background: #FFF;
- 	padding-left: 164px;
+ 	padding-left: 64px;
+ 	/*padding-left: 164px;*/
  }
  #menu_wrapper #nav li {
  	float: left;
@@ -124,7 +125,7 @@ a:hover, a.active{
  	font-family:'brandon-grotesque', Arial, Helvetica, sans-serif;
  	text-transform: uppercase;
  	text-decoration: none;
- 	font-weight: 700;
+ 	font-weight: 500;
 	cursor: auto;
  }
 
@@ -139,16 +140,21 @@ a:hover, a.active{
  }
 
  #menu_wrapper #social{
- 	position: absolute;
+ 	/*position: relative;
  	top:-1px;
- 	right: 10px;
+ 	height: 17px;
+ 	margin: 0;
+ 	padding: 0;*/
+ 	/*right: 10px;*/
  }
  #menu_wrapper #social a{
  	display: inline-block;
  	width: 17px;
  	height: 17px;
- 	font-size: 0;
- 	margin-left: 4px;
+ 	margin-left: 8px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
  }
 
  #menu_wrapper #social a#pinterest{
@@ -649,14 +655,14 @@ a:hover, a.active{
  #page.home #collections #collection_defil div.article:hover .description .collection_header p{
  	font-weight: 300;
  	font-size: 36px;
- 	line-height: 1.2em;
+ 	line-height: 1.1em;
  	margin: 0;
  }
 
  #page.home #collections #collection_defil div.article:hover .description .collection_header h1{
  	font-weight: 500;
  	font-size: 36px;
- 	line-height: 1.2em;
+ 	line-height: 1.1em;
  	margin: 0;
  }
 
@@ -783,12 +789,15 @@ a:hover, a.active{
  }
 
 
- #shopp .left{
+ #shopp>.left{
  	float: left;
  }
 
- #shopp .right{
+ #shopp>.right{
  	margin-left:0px;
+	margin-left: 385px;
+	height: 540px;
+	overflow-y:auto;
  }
 
  #shopp p{
@@ -809,7 +818,7 @@ a:hover, a.active{
 
  #shopp .right p.headline big{
  	font-size: inherit;
- 	font-weight: 700;
+ 	font-weight: 500;
  }
 
 
@@ -865,7 +874,7 @@ a:hover, a.active{
  #shopp .right h3.price{
  	font-family:'proxima-nova', Arial, Helvetica, sans-serif;
  	font-size: 24px;
- 	font-weight: 500;
+ 	font-weight: 300;
  	margin:0.3em 0;
  }
 
@@ -920,6 +929,10 @@ a:hover, a.active{
  	position: absolute;
  	bottom: 0;
  	right: 0;
+ 	border-top:solid white 8px;
+ 	border-left:solid white 8px;
+ 	padding: 0;
+ 	margin: 0;
  }
 
 
@@ -966,11 +979,18 @@ a:hover, a.active{
  	padding: 0;
  	position: absolute;
  	bottom:0;
- 	margin-left:385px;
- 	width:385px;
+ 	/*margin-top:60px;*/
+ 	margin-left:0px;
+ 	background: white;
+ 	display: inline-block;
+ 	border-top: solid white 8px;
  }
 
  #shopp ul#gallery-nav li{
+ 	/*display: table-cell;
+ 	vertical-align: bottom;*/
+ 	/*float: left;*/
+
  	display: inline-block;
  	margin: 0;
  	padding: 0;

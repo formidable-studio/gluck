@@ -19,7 +19,8 @@
 
 <div class="right">
 	<ul class="breadcrumb">
-		<li><a href="<?php bloginfo('url'); ?>/" class="closeFancy">Retour à la boutique</a></li>
+		<!--<li><a href="#" class="closeFancy" javascript="$.fancybox.close();false;">Retour à la boutique</a></li>-->
+		<li><a href="<?php bloginfo('url'); ?>/" class="fancy closeFancy">Retour à la boutique</a></li>
 	</ul>
 	<?php //shopp('catalog','breadcrumb')?>
 
@@ -47,7 +48,7 @@
 	<p class="freeshipping">Livraison gratuite !</p>
 <?php endif; ?>
 
-<form action="<?php shopp('cart','url'); ?>" method="post" class="shopp product validate validation-alerts">
+<form action="<?php shopp('cart','url'); ?>" method="post" class="shopp product validate validation-alerts shoppform">
 	<?php if(shopp('product','has-variations')): ?>
 	<p class="variations">
 		<?php shopp('product','variations','mode=multiple&label=false&defaults=Sélectionnez une option'); ?>
@@ -73,10 +74,21 @@
 		<dt><?php shopp('product','spec','name'); ?>:</dt><dd><?php shopp('product','spec','content'); ?></dd>
 	<?php endwhile; ?>
 </dl>
+</div>
 <?php endif; ?>
 
 
-<?php if(shopp('product','has-images')): ?>
+<?php
+// pour compter le nombre d'images
+$compteur = 0;
+if(shopp('product','has-images')):
+	while(shopp('product','images')):
+		$compteur ++;
+	endwhile;
+endif;
+?>
+
+<?php if(shopp('product','has-images') && $compteur > 1): ?>
 	<ul id="gallery-nav">
 		<?php while(shopp('product','images')): ?>
 		<li><a href="<?php shopp('product','image','setting=gallery-large&property=url'); ?>">
@@ -84,7 +96,7 @@
 			<?php shopp('product','image','width=82&height=82&fit=crop'); ?>
 		</a></li>
 		<?php endwhile; ?>
-</ul>
+	</ul>
 <?php endif; ?>
 
 <!-- cf http://fr.business.pinterest.com/widget-builder/#do_pin_it_button -->
@@ -98,7 +110,7 @@
 	<h3>Article introuvable</h3>
 	<p>Désolé ! L'article demandé n'a pas été trouvé dans notre catalogue !</p>
 <?php endif; ?>
-</div>
+
 
 
 <!-- FIN PRODUCT -->

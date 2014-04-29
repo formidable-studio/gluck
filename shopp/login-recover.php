@@ -1,5 +1,5 @@
 <!-- LOGIN RECOVER -->
-<form action="<?php shopp('customer','url'); ?>" method="post" class="shopp" id="login">
+<form action="<?php shopp('customer','url'); ?>" method="post" class="shopp shoppform" id="login">
 
 <ul>
 	<li><h3>Récupérez votre mot de passe</h3></li>

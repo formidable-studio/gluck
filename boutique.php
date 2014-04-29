@@ -53,7 +53,11 @@
 			<div class="preview">
 				<a href="<?php shopp('product','url'); ?>">
 					<?php //shopp('product','coverimage','setting=gallery-previews'); ?>
-					<?php shopp('product','image','width=200&height=280&fit=crop'); ?>
+					<?php if ( shopp('product','has-images') ){
+							shopp('product','image','width=200&height=280&fit=crop');
+						}else{
+							echo "<img src='".get_bloginfo('template_url')."/img/boutique-vide.jpg' width='200' height='280' />";
+						} ?>
 				</a>
 			</div>
 			<div class="detail">

@@ -1,5 +1,5 @@
 <!-- CHECKOUT -->
-<form action="<?php shopp('checkout','url'); ?>" method="post" class="shopp validate" id="checkout">
+<form action="<?php shopp('checkout','url'); ?>" method="post" class="shopp validate shoppform" id="checkout">
 <?php shopp('checkout','cart-summary'); ?>
 
 <?php if (shopp('cart','hasitems')): ?>

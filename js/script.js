@@ -155,16 +155,8 @@ jQuery( document ).ready(function( $ ) {
 				var State = History.getState(); // Note: We are using History.getState() instead of event.state
 				History.log('click:',State.data, State.title, State.url);
 
-				//History.log(State);
-				//History.log('Change : '+State.data.url);
-
 				AJAXboutique(State.data.url);
-
-				//window.history.pushState("", State.data.title, State.data.url);
-				//$('title').text($('title').data('titre')+State.data.title);
 			});
-
-
 		})(window);
 
 
@@ -206,7 +198,7 @@ jQuery( document ).ready(function( $ ) {
 		});
 
 		// QUAND UN FORMULAIRE DE LA BOUTIQUE EST ENVOYE
-		$('#shopp form').ajaxForm({
+		$('.shoppform').ajaxForm({
 			beforeSubmit:  shoppFormRequest,
 			success:       shoppFormResponse 
 		}); 
@@ -318,6 +310,7 @@ jQuery( document ).ready(function( $ ) {
 					locked: true 
 				}
 			},
+			maxHeight: 545,
 			afterShow:function(){
 
 				shoppAction == false;
@@ -342,6 +335,7 @@ jQuery( document ).ready(function( $ ) {
 					event.preventDefault();
 				});
 
+
 				$('#shopp a').not('#gallery-nav a').click(function(event){
 					shoppAction == true;
 
@@ -356,7 +350,8 @@ jQuery( document ).ready(function( $ ) {
 					event.preventDefault();
 				});
 
-				$('#shopp form').ajaxForm({
+
+				$('.shoppform').ajaxForm({
 					beforeSubmit:  shoppFormRequest,
 					success:       shoppFormResponse 
 				});

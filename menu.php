@@ -46,15 +46,18 @@ if(is_home()){
                     <li>
                         <a href="<?php bloginfo('url'); ?>/category/blog/" id="btn_blog">Blog</a>
                     </li>
+                    <li>
+                        <span id="social">
+                            <a href="https://www.facebook.com/pages/Glück/102108928011?fref=ts" id="facebook" target="_blank">Facebook</a><!--
+                         --><a href="http://pinterest.com/gluckfactory/" id="pinterest" target="_blank">Pinterest</a><!--
+                         --><a href="http://instagram.com/gluckfactory" id="instagram" target="_blank">Instagram</a><!--
+                         --><a href="https://twitter.com/Gluck_factory" id="twitter" target="_blank">Twitter</a><!--
+                         --><a href="http://www.etsy.com/fr/shop/Gluckfactory" id="etsy" target="_blank">Etsy</a>
+                        </span>
+                    </li>
                 </ul>
 
-                <div id="social">
-            <a href="https://www.facebook.com/pages/Glück/102108928011?fref=ts" id="facebook" target="_blank">Facebook</a><!--
-         --><a href="http://pinterest.com/gluckfactory/" id="pinterest" target="_blank">Pinterest</a><!--
-         --><a href="http://instagram.com/gluckfactory" id="instagram" target="_blank">Instagram</a><!--
-         --><a href="https://twitter.com/Gluck_factory" id="twitter" target="_blank">Twitter</a><!--
-         --><a href="http://www.etsy.com/fr/shop/Gluckfactory" id="etsy" target="_blank">Etsy</a>
- </div>
+                
 </div>
 </div>
 

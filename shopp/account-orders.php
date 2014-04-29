@@ -5,7 +5,7 @@
 	<?php shopp('purchase','receipt'); ?>
 <?php return; endif; ?>
 
-<form action="<?php shopp('customer','action'); ?>" method="post" class="shopp validate" autocomplete="off">
+<form action="<?php shopp('customer','action'); ?>" method="post" class="shopp validate shoppform" autocomplete="off">
 
 <?php if (shopp('customer','has-purchases')): ?>
 	<table cellspacing="0" cellpadding="0">
