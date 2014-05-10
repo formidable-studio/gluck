@@ -1,5 +1,5 @@
 <!-- LOGIN -->
-<form action="<?php shopp('customer','url'); ?>" method="post" class="shopp" id="login">
+<form action="<?php shopp('customer','url'); ?>" method="post" class="shopp" id="login" class="shoppform">
 
 <ul>
 	<?php if (shopp('customer','notloggedin')): ?>

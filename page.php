@@ -11,7 +11,7 @@ Template Name: Page Front Skrollr
 <?php get_template_part('skrollr'); ?>
 
 
-<div id="test">
+<div id="fancy_shopp">
 <script type="text/html" id="boutique_content">
 <div style="width:770px;">
 	<?php the_content(); ?>

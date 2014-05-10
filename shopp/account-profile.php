@@ -1,5 +1,5 @@
 <!-- ACCOUNT PROFILE -->
-<form action="<?php shopp('customer','action'); ?>" method="post" class="shopp validate" autocomplete="off">
+<form action="<?php shopp('customer','action'); ?>" method="post" class="shopp validate shoppform" autocomplete="off">
 
 	<?php if(shopp('customer','password-changed')): ?>
 	<div class="notice">Votre mot de passe a été changé avec succès.</div>

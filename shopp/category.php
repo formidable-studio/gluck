@@ -32,7 +32,7 @@
 
 					<div class="listview">
 					<p><?php shopp('product','summary'); ?></p>
-					<form action="<?php shopp('cart','url'); ?>" method="post" class="shopp product">
+					<form action="<?php shopp('cart','url'); ?>" method="post" class="shopp product shoppform">
 					<?php shopp('product','addtocart'); ?>
 					</form>
 					</div>

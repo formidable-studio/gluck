@@ -32,7 +32,7 @@
 			<?php if ((shopp('cart','has-shipping-methods'))): ?>
 			<small>Sélectionnez un mode d'expédition :</small>
 
-			<form action="<?php shopp('shipping','url') ?>" method="post">
+			<form action="<?php shopp('shipping','url') ?>" method="post" class="shoppform">
 
 			<ul id="shipping-methods">
 			<?php while(shopp('shipping','methods')): ?>

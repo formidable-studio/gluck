@@ -147,7 +147,7 @@ ul.shopp_categories li ul.active { display: block; }
 #shopp #cart .remove { font-size: 9px; }
 
 #shopp #cart address { font-style: normal; }
-#shopp #cart big { display: block; margin: 10px 0; }
+#shopp #cart big, #shopp #checkout big { display: block; margin: 10px 0; }
 #shopp #cart big a.right { float: right; }
 
 /**

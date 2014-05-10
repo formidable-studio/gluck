@@ -1,8 +1,8 @@
 <!-- CART -->
 <?php if (shopp('cart','hasitems')): ?>
-<form id="cart" action="<?php shopp('cart','url'); ?>" method="post">
+<form id="cart" action="<?php shopp('cart','url'); ?>" method="post" class="shoppform">
 <big>
-	<a href="<?php bloginfo('url'); ?>/">< Continuez votre shopping</a>
+	<a href="<?php bloginfo('url'); ?>/" class="closeFancy">< Continuez votre shopping</a>
 	<!--<a href="<?php shopp('cart','referrer'); ?>">< Continuez votre shopping</a>-->
 	<a href="<?php shopp('checkout','url'); ?>" class="right green">Passez votre commande&nbsp;&nbsp;></a>
 </big>
@@ -72,7 +72,7 @@
 </table>
 
 <big>
-	<a href="<?php bloginfo('url'); ?>/">< Continuez votre shopping</a>
+	<a href="<?php bloginfo('url'); ?>/" class="closeFancy">< Continuez votre shopping</a>
 	<!--<a href="<?php shopp('cart','referrer'); ?>">< Continuez votre shopping</a>-->
 	<a href="<?php shopp('checkout','url'); ?>" class="right green">Passez votre commande ></a>
 </big>
@@ -81,7 +81,7 @@
 
 <?php else: ?>
 	<p class="warning">Il n'y a actuellement aucun article dans votre panier.</p>
-	<p><a href="<?php bloginfo('url'); ?>/">< Continuez votre shopping</a>
+	<p><a href="<?php bloginfo('url'); ?>/" class="closeFancy">< Continuez votre shopping</a>
 	<!--<a href="<?php shopp('cart','referrer'); ?>">< Continuez votre shopping</a>--></p>
 <?php endif; ?>
 
