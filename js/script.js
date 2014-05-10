@@ -286,7 +286,7 @@ jQuery( document ).ready(function( $ ) {
 		$('#loader').hide();
 
 		$.fancybox(content,{
-			scrollOutside:false,
+			scrollOutside:true,
 			padding:[13,15,13,15],
 			autoSize:true,
 			helpers: {
@@ -294,7 +294,7 @@ jQuery( document ).ready(function( $ ) {
 					locked: true 
 				}
 			},
-			maxHeight: 545,
+			/*maxHeight: 545,*/
 			afterShow:function(){
 
 				actionsFancyBox();
