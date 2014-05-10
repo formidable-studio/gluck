@@ -56,7 +56,7 @@
 					<?php if ( shopp('product','has-images') ){
 							shopp('product','image','width=200&height=280&fit=crop');
 						}else{
-							echo "<img src='".get_bloginfo('template_url')."/img/boutique-vide.jpg' width='200' height='280' />";
+							echo "<img src='".get_bloginfo('template_url')."/img/boutique-vide.jpg' width='200' height='280' nopin='true' />";
 						} ?>
 				</a>
 			</div>
