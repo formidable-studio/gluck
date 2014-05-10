@@ -35,7 +35,7 @@ if(is_home()){
                     </li>
                     <?php if(get_sub_field('menu_title')=='Boutique'){ ?>
                     <li>
-                        <a href="<?php bloginfo('url'); ?>/shop/cart/" id="btn_panier">Panier <img src="<?php bloginfo( 'template_url' ); ?>/img/panier.png" class="logo-panier" alt="Panier" width="21" height="17"/>
+                        <a href="<?php shopp('cart','url');?>" id="btn_panier">Panier <img src="<?php bloginfo( 'template_url' ); ?>/img/panier.png" class="logo-panier" alt="Panier" width="21" height="17"/>
                         </a>
                     </li>
                     <?php } ?>

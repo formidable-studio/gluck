@@ -931,11 +931,9 @@ input, button{
  #shopp .pinit{
  	position: absolute;
  	bottom: 0;
- 	right: 0;
- 	border-top:solid white 8px;
- 	border-left:solid white 8px;
+ 	left: 0;
  	padding: 0;
- 	margin: 0;
+ 	margin: 5px;
  }
 
 
@@ -981,12 +979,16 @@ input, button{
  	margin: 0;
  	padding: 0;
  	position: absolute;
- 	bottom:0;
+ 	bottom:10px;
+ 	/*left: 385px;
+ 	right: 0;*/
+ 	left: 0;
+ 	width: 360px;
  	/*margin-top:60px;*/
- 	margin-left:0px;
- 	background: white;
- 	display: inline-block;
- 	border-top: solid white 8px;
+ 	/*background: white;*/
+ 	display: block;
+ 	/*border-top: solid white 8px;*/
+ 	text-align: center;
  }
 
  #shopp ul#gallery-nav li{
@@ -997,7 +999,20 @@ input, button{
  	display: inline-block;
  	margin: 0;
  	padding: 0;
- 	margin-right:8px;
+ 	margin-right:2px;
+ }
+
+ #shopp ul#gallery-nav li:last-child{
+ 	margin-right:0px;
+ }
+
+  #shopp ul#gallery-nav li img{
+  	background: #b0f7df;
+  	padding: 2px;
+  	border: solid 2px white;
+ 	border-radius: 50px;
+ 	width:60px;
+ 	height: 60px;
  }
 
  /* PANNIER / CART */
@@ -1063,6 +1078,11 @@ input, button{
  	background: #b0f7df;
  }
 
+
+#shopp span.payoption-button{
+	display: block;
+	margin-bottom: 5px;
+}
 
 
 /*

@@ -1,29 +1,26 @@
-// javascript Glück (!)
-// 
+/**
+ * Javascript Glück (!)
+ * @author : Loïc Horellou
+ */
 
-// analyse d'une URL
-var parseUrl = (function () {
-	var a = document.createElement('a');
-	return function (url) {
-		a.href = url;
-		return {
-			host: a.host,
-			hostname: a.hostname,
-			pathname: a.pathname,
-			port: a.port,
-			protocol: a.protocol,
-			search: a.search,
-			hash: a.hash
-		};
-	}
-})();
 
+
+/**
+ * DESACTIVATION DU MODE NOCONFLICT AU CHARGEMENT DE LA PAGE
+ */
 jQuery.noConflict();
-
-
 jQuery( document ).ready(function( $ ) {
 
-	// detection des liens internes
+
+	/**
+	 * ++++++++++++++++++++++++++++++++++++++++++
+	 *             FONCTIONS GÉNÉRALES	
+	 * ++++++++++++++++++++++++++++++++++++++++++
+	 */
+
+	/**
+	 * detection des liens internes
+	 */
 	$.expr[':'].internal = function (obj, index, meta, stack) {
 	    // Prepare
 	    var
@@ -37,7 +34,40 @@ jQuery( document ).ready(function( $ ) {
 	};
 
 
-	// initialisation de la librairie skrollr
+	/**
+	 * analyse d'une URL
+	 * @return {[type]} [description]
+	 */
+	var parseUrl = (function () {
+		var a = document.createElement('a');
+		return function (url) {
+			a.href = url;
+			return {
+				host: a.host,
+				hostname: a.hostname,
+				pathname: a.pathname,
+				port: a.port,
+				protocol: a.protocol,
+				search: a.search,
+				hash: a.hash
+			};
+		}
+	})();
+
+
+	// on ajoute une classe internal sur les liens qui pointent sur le site
+	$('a:internal').addClass('internal');
+	// on masque le loader
+	$('#loader').hide();
+	// on active le mode responsive pour les vidéos
+	$("#page.blog").fitVids();
+	
+
+
+	/**
+	 * initialisation de la librairie skrollr
+	 * @return {[type]} [description]
+	 */
 	$(window).load(function(){
 		var s = skrollr.init({
 			smoothScrolling: true,
@@ -48,7 +78,10 @@ jQuery( document ).ready(function( $ ) {
 	});
 
 
-	// on active isotope au moment du chargement des images
+	/**
+	 * on active isotope au moment du chargement des images
+	 * @return {[type]} [description]
+	 */
 	$('img').load(function(){
 		var container = $('#boutique .conteneur');
 
@@ -64,209 +97,157 @@ jQuery( document ).ready(function( $ ) {
 			container.isotope({ filter: selector });
 			event.preventDefault();
 		});
-	})
-
-	var shoppAction = false;
-
-
-	// au chargement de la page
-	$(document).ready(function(){
-
-		
-
-		$('a:internal').addClass('internal');
-
-		$('#loader').hide();
-
-		$("#page.blog").fitVids();
-		
-
-		updateCollectionWidth();
-		AJAXcollection();
-
-		(function(window,undefined){
-
-			var State = History.getState(); // Note: We are using a capital H instead of a lower h
-			
-			if ( !History.enabled ) {
-				console.log( 'History.js is disabled for this browser.');
-				 // This is because we can optionally choose to support HTML4 browsers or not.
-				 return false;
-			}else{
-				console.log('History.js is OK.');
-			}
-
-			History.log('initial:', State.data, State.title, State.url);
-
-			var rootURL = $('meta[name=identifier-url]').attr('content');			
-
-			console.log('meta : identifier-url');
-			console.log(parseUrl(rootURL));
-			console.log('history : getState');
-			console.log(parseUrl(State.url));
-
-			$('a').each(function(){
-
-				if($(this).attr('href') == State.url){
-					$(this).addClass('active');
-				}
-			})
-
-
-			var isBlog = false;
-			if( ( parseUrl(State.url).pathname.indexOf('blog') != -1) == false){
-				console.log('on est pas sur le blog !');
-			}else{
-				isBlog = true;
-				console.log('BLOG…')
-			}
-
-			if( parseUrl(State.url).hash != '' ){
-
-				console.log('CLICK : '+parseUrl(State.url).hash);
-
-				//$('a[href='+parseUrl(State.url).hash+']').trigger( "click" );
-				var $root = $('html, body');
-				$root.animate({
-					scrollTop: parseUrl(State.url).hash
-				}, 500, function () {
-					window.location.hash = href;
-				});
-
-			}
-
-			/*if( State.url != $('meta[name=identifier-url]').attr('content')
-				&&  State.url != $('meta[name=identifier-url]').attr('content')+'/'){*/
-
-			if(parseUrl(rootURL).pathname != parseUrl(State.url).pathname && !isBlog){
-
-				if(ich.boutique_content != undefined){
-					$('#loader').show();
-
-					var boutique = ich.boutique_content({});
-
-					fancyBoutique(boutique);
-				}
-			}
-
-
-			// Bind to StateChange Event
-			History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
-				var State = History.getState(); // Note: We are using History.getState() instead of event.state
-				History.log('click:',State.data, State.title, State.url);
-
-				AJAXboutique(State.data.url);
-			});
-		})(window);
-
-
-		$('a.closeFancy').click(function(event){
-			event.preventDefault();
-
-			console.log('mince');
-			$.fancybox.close();
-
-			return false;
-		});
-
-
-		// CLIQUE SUR LE PANIER
-		$('a#btn_panier').click(function(event){
-			History.pushState(
-				null,
-				$('title').data('titre')+$(this).text(),
-				$(this).attr('href')
-				);
-
-			AJAXboutique( $(this).attr('href') );
-
-			event.preventDefault();
-		});
-
-		// CLIQUE SUR UN LIEN DE LA BOUTIQUE
-		$('#boutique .conteneur a').click(function(event){
-
-			History.pushState(
-				null,
-				$('title').data('titre')+$(this).text(),
-				$(this).attr('href')
-				);
-
-			AJAXboutique( $(this).attr('href') );
-
-			event.preventDefault();
-		});
-
-		// QUAND UN FORMULAIRE DE LA BOUTIQUE EST ENVOYE
-		$('.shoppform').ajaxForm({
-			beforeSubmit:  shoppFormRequest,
-			success:       shoppFormResponse 
-		}); 
 	});
 
 
-	// POUR POUVOIR CHARGER LES COLLECTIONS DANS LA PAGE SKROLLR
-	function AJAXcollection(){
-
-		$('#collections a').click(function(event){
-			event.preventDefault();
-
-			$('#collections').addClass('loading');
-
-			$.collection_defil_content = $("#collection_defil").html();
-
-			$("#collection_defil")
-			.empty();
 
 
-			$.ajax({
-				url         : $(this).attr('href'),
-				type        : "POST",
-				data        : {},
-				dataType    : 'html'
-			}).done(function ( data ) {
+	/**
+	 * ++++++++++++++++++++++++++++++++++++++++++
+	 *             HISTORY.JS
+	 * ++++++++++++++++++++++++++++++++++++++++++
+	 */
 
-				$('#collections').removeClass('loading');
 
-				$("#collection_defil").append(
-					$('<div>')
-					.addClass('article')
-					.addClass('back')
-					.append(
-						$('<a>')
-						.html('Retour<br/>aux<br/>collections')
-						.click(function(e){
-							e.preventDefault();
+	/**
+	 * ACTIVATION DE history.js
+	 * @param  {[type]} window    [description]
+	 * @param  {[type]} undefined [description]
+	 * @return {[type]}           [description]
+	 */
+	(function(window,undefined){
 
-							$("#collection_defil")
-							.empty()
-							.html( $.collection_defil_content );
+		var State = History.getState();
+		var rootURL = $('meta[name=identifier-url]').attr('content');
+		
+		if ( !History.enabled ) {
+			//console.log( 'History.js is disabled for this browser.');
+			return false;
+		}else{
+			//console.log('History.js is OK.');
+		}
 
-							updateCollectionWidth();
+		//History.log('initial:', State.data, State.title, State.url);
+			
+		// console.log('meta : identifier-url');
+		// console.log(parseUrl(rootURL));
+		// console.log('history : getState');
+		// console.log(parseUrl(State.url));
 
-							AJAXcollection();
-						})
-						)
-					);
-
-				$(data)
-				.find('.gallerie-collection>div.article')
-				.each(function(){
-					$("#collection_defil").append( $(this) );
-				});
-
-				updateCollectionWidth();
-
-			});
+		// on ajoute une classe active si un lien correspond à l'URL de la page
+		$('a').each(function(){
+			if($(this).attr('href') == State.url){
+				$(this).addClass('active');
+			}
 		});
-	}
 
-	// CHARGEMENT AJAX DE LA BOUTIQUE DANS UN POPIN FANCYBOX
+		// on vérifie si on est sur le blog ou pas
+		var isBlog = false;
+		if( ( parseUrl(State.url).pathname.indexOf('blog') != -1) == false){
+			//console.log('on est pas sur le blog !');
+		}else{
+			isBlog = true;
+			//console.log('BLOG…')
+		}
+
+
+		if(parseUrl(rootURL).pathname != parseUrl(State.url).pathname && !isBlog){
+
+			if(ich.boutique_content != undefined){
+
+				$('#loader').show();
+
+				var boutique = ich.boutique_content({});
+
+				fancyBoutique(boutique);
+			}
+		}
+
+
+		// Bind to StateChange Event
+		History.Adapter.bind(window,'statechange',function(){
+			var State = History.getState();
+
+			console.log('--------------------------');
+			console.log('State : ');
+			console.log(State);
+			switch(State.data.shopp){
+				case 'a' :
+					console.log('c’est un lien AJAXBOUTIQUE' );
+					//AJAXboutique( State.data.url );
+					AJAXboutique( State.url );
+				break;
+				case 'form' :
+					console.log('c’est un formulaire' );
+				break;
+				case 'close' : default :
+					console.log('on ferme fancybox' );
+					//$.fancybox.close();
+				break;
+			}	
+
+			History.log('click:',State.data, State.title, State.url);
+
+		});
+
+	})(window);
+
+
+
+	/**
+	 * ++++++++++++++++++++++++++++++++++++++++++
+	 *          FANCYBOX ET BOUTIQUE
+	 * ++++++++++++++++++++++++++++++++++++++++++
+	 */
+
+	 actionsFancyBox();
+
+
+	/**
+	 * CLIQUE SUR UN LIEN DE LA BOUTIQUE
+	 * @param  {[type]} event [description]
+	 * @return {[type]}       [description]
+	 */
+	$('#boutique .conteneur a').click(function(event){
+
+		History.pushState(
+			{
+				'shopp' : 'a',
+				//'url'   : $(this).attr('href')
+			},
+			$('title').data('titre')+$(this).data('titre'),
+			$(this).attr('href')
+		);
+
+		event.preventDefault();
+	});
+
+	// quand on clique sur le bouton pannier
+	$('a#btn_panier').click(function(event){
+
+		History.pushState(
+			{
+				'shopp' : 'a',
+				//'url'   : $(this).attr('href')
+			},
+			$('title').data('titre')+$(this).text(),
+			$(this).attr('href')
+			);
+
+		event.preventDefault();
+	});
+
+
+
+	/**
+	 * CHARGEMENT AJAX DE LA BOUTIQUE DANS UN POPIN FANCYBOX
+	 * @param {[type]} url [description]
+	 */
 	function AJAXboutique(url){
 
 		if(url != undefined){
 
-			console.log(url);
+			//console.log(url);
 
 			$('#loader').show();
 
@@ -275,7 +256,7 @@ jQuery( document ).ready(function( $ ) {
 				type:'POST',
 				//dataType:html
 				success:function(data){
-					console.log('AJAX boutique result');
+					//console.log('AJAX boutique result');
 
 					$('#loader').hide();
 
@@ -295,8 +276,11 @@ jQuery( document ).ready(function( $ ) {
 	}
 
 
-
-	// OUVERTURE DU POPIN FANCYBOX AVEC LA BOUTIQUE
+	/**
+	 * OUVERTURE DU POPIN FANCYBOX AVEC LA BOUTIQUE
+	 * @param  {[type]} content [description]
+	 * @return {[type]}         [description]
+	 */
 	function fancyBoutique(content){
 
 		$('#loader').hide();
@@ -313,68 +297,15 @@ jQuery( document ).ready(function( $ ) {
 			maxHeight: 545,
 			afterShow:function(){
 
-				shoppAction == false;
-
-				$('#gallery-nav a').click(function(event){
-					shoppAction == true;
-
-					$('.product-image img').attr('src',$(this).attr('href'));
-					event.preventDefault();
-				});
-
-				$('a#btn_panier').click(function(event){
-					shoppAction == true;
-
-					History.pushState(
-						null,
-						$('title').data('titre')+$(this).text(),
-						$(this).attr('href')
-						);
-
-					AJAXboutique( $(this).attr('href') );
-					event.preventDefault();
-				});
-
-
-				$('#shopp a').not('#gallery-nav a').click(function(event){
-					shoppAction == true;
-
-
-					History.pushState(
-						null,
-						$('title').data('titre')+$(this).text(),
-						$(this).attr('href')
-						);
-
-					AJAXboutique( $(this).attr('href') );
-					event.preventDefault();
-				});
-
-
-				$('.shoppform').ajaxForm({
-					beforeSubmit:  shoppFormRequest,
-					success:       shoppFormResponse 
-				});
-
-				$('#shopp a.closeFancy').click(function(event){
-					event.preventDefault();
-
-					console.log('mince');
-					$.fancybox.close();
-
-					return false;
-				});
-
-				// code pinterest
-				// cf //assets.pinterest.com/js/pinit.js
-				!function(a,b,c){var d,e,f;f="PIN_"+~~((new Date).getTime()/864e5),a[f]||(a[f]=!0,a.setTimeout(function(){d=b.getElementsByTagName("SCRIPT")[0],e=b.createElement("SCRIPT"),e.type="text/javascript",e.async=!0,e.src=c,d.parentNode.insertBefore(e,d)},10))}(window,document,"//assets.pinterest.com/js/pinit_main.js");
+				actionsFancyBox();
+				
 			},
 			beforeClose:function(){
-				console.log('close fancy !');
-
-				if(!shoppAction){
+				if($keepFancy != true){
 					History.pushState(
-						null,
+						{
+							'shopp' : 'close',
+						},
 						$('title').data('titre')+$('title').data('slogan'),
 						$('meta[name=identifier-url]').attr('content')
 					);
@@ -384,31 +315,46 @@ jQuery( document ).ready(function( $ ) {
 	}
 
 
-	// REQUETE ENVOYEE AVEC UN FORMULAIRE SHOPP
+	/**
+	 * REQUETE ENVOYEE AVEC UN FORMULAIRE SHOPP
+	 * @param  {[type]} formData [description]
+	 * @param  {[type]} jqForm   [description]
+	 * @param  {[type]} options  [description]
+	 * @return {[type]}          [description]
+	 */
 	function shoppFormRequest(formData, jqForm, options) {
-		console.log('shoppFormRequest');
-		console.log(options.url);
+		// console.log('shoppFormRequest');
+		// console.log(options.url);
+		
+		$('#loader').show();
 
-		shoppAction == true;
+		$keepFancy = true;
 
 		History.pushState(
-			null,
+			{
+				'shopp':'form'
+			},
 			$('title').data('titre')+"Panier",
 			options.url
-			);
+		);
 
 		var queryString = $.param(formData); 
-
-		console.log('About to submit: \n\n' + queryString); 
+		// console.log('About to submit: \n\n' + queryString); 
 
 		return true; 
 	} 
 
-	// REPONSE LORS DE L'ENVOI D'UN FORMULAIRE SHOPP - post-submit callback 
-	function shoppFormResponse(data, statusText, xhr, $form)  {
-		console.log('shoppFormResponse');
 
-		shoppAction == true;
+	/**
+	 * REPONSE LORS DE L'ENVOI D'UN FORMULAIRE SHOPP - post-submit callback 
+	 * @param  {[type]} data       [description]
+	 * @param  {[type]} statusText [description]
+	 * @param  {[type]} xhr        [description]
+	 * @param  {[type]} $form      [description]
+	 * @return {[type]}            [description]
+	 */
+	function shoppFormResponse(data, statusText, xhr, $form)  {
+		//console.log('shoppFormResponse');
 
 		var dom = $(data);
 
@@ -424,7 +370,74 @@ jQuery( document ).ready(function( $ ) {
 	} 
 
 
-	// MISE A JOUR DE LA LARGEUR D'UNE COLLECTION
+
+	/**
+	 * [actionsFancyBox description]
+	 * @return {[type]} [description]
+	 */
+	function actionsFancyBox(){
+		$keepFancy = false;
+
+		$('#gallery-nav a').click(function(event){
+
+			$('.product-image img').attr('src',$(this).attr('href'));
+
+			event.preventDefault();
+		});
+
+
+
+		// quand on clique sur une des vignettes de galerie de la boutique
+		$('#shopp a').not('#gallery-nav a').click(function(event){
+
+			$keepFancy = true;
+
+			History.pushState(
+				{
+					'shopp' : 'a',
+				},
+				$('title').data('titre')+$(this).text(),
+				$(this).attr('href')
+			);
+
+			//AJAXboutique( $(this).attr('href') );
+			event.preventDefault();
+		});
+
+		// quand on envoie un formulaire
+		$('.shoppform').ajaxForm({
+			beforeSubmit:  shoppFormRequest,
+			success:       shoppFormResponse 
+		});
+
+		// quand on clique sur un lien de fermeture de la boutique
+		$('#shopp a.closeFancy')
+		.unbind('click')
+		.click( function(event){
+			event.preventDefault();
+
+			$.fancybox.close();
+		});
+
+		// code pinterest
+		// cf //assets.pinterest.com/js/pinit.js
+		!function(a,b,c){var d,e,f;f="PIN_"+~~((new Date).getTime()/864e5),a[f]||(a[f]=!0,a.setTimeout(function(){d=b.getElementsByTagName("SCRIPT")[0],e=b.createElement("SCRIPT"),e.type="text/javascript",e.async=!0,e.src=c,d.parentNode.insertBefore(e,d)},10))}(window,document,"//assets.pinterest.com/js/pinit_main.js");
+	}
+
+
+
+
+	/**
+	 * ++++++++++++++++++++++++++++++++++++++++++
+	 *             LES COLLECTIONS
+	 * ++++++++++++++++++++++++++++++++++++++++++
+	 */
+
+	
+	/**
+	 * MISE A JOUR DE LA LARGEUR D'UNE COLLECTION
+	 */
+	updateCollectionWidth();
 	function updateCollectionWidth(){
 		$largeur = 0;
 
@@ -438,6 +451,64 @@ jQuery( document ).ready(function( $ ) {
 		
 		$("#collection_defil").width($largeur);
 		$('#collections').jScrollPane();
+	}
+
+
+	
+	/**
+	 * POUR POUVOIR CHARGER LES COLLECTIONS DANS LA PAGE SKROLLR
+	 */
+	AJAXcollection();
+	function AJAXcollection(){
+
+		$('#collections a').click(function(event){
+			event.preventDefault();
+
+			$('#collections').addClass('loading');
+
+			$.collection_defil_content = $("#collection_defil").html();
+
+			$("#collection_defil").empty();
+
+
+			$.ajax({
+				url         : $(this).attr('href'),
+				type        : "POST",
+				dataType    : 'html'
+			}).done(function ( data ) {
+
+				$('#collections').removeClass('loading');
+
+				$("#collection_defil").append(
+					$('<div>')
+					.addClass('article')
+					.addClass('back')
+					.append(
+						$('<a>')
+						.html('Retour<br/>aux<br/>collections')
+						.click(function(event){
+							event.preventDefault();
+
+							$("#collection_defil")
+							.empty()
+							.html( $.collection_defil_content );
+
+							updateCollectionWidth();
+							AJAXcollection();
+						})
+					)
+				);
+
+				$(data)
+				.find('.gallerie-collection>div.article')
+				.each(function(){
+					$("#collection_defil").append( $(this) );
+				});
+
+				updateCollectionWidth();
+
+			});
+		});
 	}
 
 });

@@ -51,7 +51,7 @@
 		<div class="article <?php echo implode(' ',$tag); ?>">		
 
 			<div class="preview">
-				<a href="<?php shopp('product','url'); ?>">
+				<a href="<?php shopp('product','url'); ?>" data-titre="<?php shopp('product','name'); ?>">
 					<?php //shopp('product','coverimage','setting=gallery-previews'); ?>
 					<?php if ( shopp('product','has-images') ){
 							shopp('product','image','width=200&height=280&fit=crop');
@@ -62,7 +62,7 @@
 			</div>
 			<div class="detail">
 				<h4 class="name">
-					<a href="<?php shopp('product','url'); ?>"><?php shopp('product','name'); ?></a>
+					<a href="<?php shopp('product','url'); ?>" data-titre="<?php shopp('product','name'); ?>"><?php shopp('product','name'); ?></a>
 				</h4>
 
 				<p class="price"><?php shopp('product','saleprice','starting=à partir de'); ?></p>
