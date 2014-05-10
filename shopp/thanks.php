@@ -1,6 +1,8 @@
 <!-- THANKS -->
 <div id="shopp" class="thanks">
 <h3>Merci pour votre commande !</h3>
+<p>L'équipe Glück(!) vous remercie pour votre commande et s'active d'hors et déjà pour vous la livrer dans les plus bref délais!</p>
+<p>The Glück(!) team thanks you for your order and makes already everything possible to send it as soon as possible!</p>
 
 <?php if (shopp('checkout','completed')): ?>
 
@@ -35,3 +37,5 @@
 
 </div>
 <!-- FIN THANKS -->
+
+

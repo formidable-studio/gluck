@@ -11,7 +11,7 @@
     <p class"description"><?php bloginfo('description'); ?></p>
     -->    
       <a href="<?php bloginfo('url'); ?>/category/blog">
-      <img src="http://gluckfactory.eu/wp-content/themes/gluck-v2/img/bandeau.jpg" width="1024" height="250" alt="Glück blog">
+      <img src="<?php bloginfo( 'template_url' ); ?>/img/bandeau.jpg" width="1024" height="250" alt="Glück blog">
       </a>
     </div>
   <!--<div id="menu">
