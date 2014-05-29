@@ -440,6 +440,7 @@ jQuery( document ).ready(function( $ ) {
 	 */
 	updateCollectionWidth();
 	function updateCollectionWidth(){
+
 		$largeur = 0;
 
 		$("#collection_defil .article")

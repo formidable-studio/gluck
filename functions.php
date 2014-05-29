@@ -23,18 +23,18 @@ add_image_size( 'collection-image', 9999, 540 );
  * @return [type] [description]
  */
 function my_scripts_method() {
-    wp_enqueue_script( 'jquery' );
+    //wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'ICanHaz',      get_template_directory_uri() . '/js/ICanHaz.min.js', array(), '0.10.2', true );
     wp_enqueue_script( 'jQueryForm',   get_template_directory_uri() . '/js/jquery.form.min.js', array('jquery'), '20131121', true );
     wp_enqueue_script( 'skrollr',      get_template_directory_uri() . '/js/skrollr.min.js', array(), '0.6.23', true );
     wp_enqueue_script( 'skrollrMenu',  get_template_directory_uri() . '/js/skrollr.menu.min.js', array('skrollr'), '0.1.11', true );
     wp_enqueue_script( 'history',      get_template_directory_uri() . '/js/jquery.history.js', array('jquery'), '1', true );
     wp_enqueue_script( 'jscrollpane',  get_template_directory_uri() . '/scrollpane/jquery.jscrollpane.min.js', array('jquery'), '2.0.14', true );
-    wp_enqueue_script( 'mousewheel',   get_template_directory_uri() . '/scrollpane/jquery.mousewheel.js', array('jscrollpane'), '2.0.14', true );
-    wp_enqueue_script( 'mwheelIntent', get_template_directory_uri() . '/scrollpane/mwheelIntent.js', array('mousewheel'), '1.2', true );
+    wp_enqueue_script( 'mousewheel',   get_template_directory_uri() . '/scrollpane/jquery.mousewheel.js', array('jscrollpane','jquery'), '2.0.14', true );
+    wp_enqueue_script( 'mwheelIntent', get_template_directory_uri() . '/scrollpane/mwheelIntent.js', array('mousewheel','jquery'), '1.2', true );
     wp_enqueue_script( 'fancybox',     get_template_directory_uri() . '/fancybox/jquery.fancybox.pack.js', array('jquery'), '2.1.5', true );
     wp_enqueue_script( 'isotope',      get_template_directory_uri() . '/js/jquery.isotope.min.js', array('jquery'), '1.5.25', true );
-    wp_enqueue_script( 'fitvid',        get_template_directory_uri() . '/js/jquery.fitvids.js', array('jquery'), '1.1', true);
+    wp_enqueue_script( 'fitvid',       get_template_directory_uri() . '/js/jquery.fitvids.js', array('jquery'), '1.1', true);
     wp_enqueue_script( 'gluck',        get_template_directory_uri() . '/js/script.js', array('jquery','skrollr','isotope','fancybox','history','ICanHaz','jQueryForm','jscrollpane'), '1', true );
 }
 
