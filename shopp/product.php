@@ -50,9 +50,9 @@
 
 <form action="<?php shopp('cart','url'); ?>" method="post" class="shopp product validate validation-alerts shoppform">
 	<?php if(shopp('product','has-variations')): ?>
-	<p class="variations">
-		<?php shopp('product','variations','mode=multiple&label=false&defaults=Sélectionnez une option'); ?>
-	</p>
+	<div class="variations">
+		<?php shopp('product','variations','mode=multiple&label=true&defaults=Sélectionnez une option&before_menu=<p>&after_menu=</p>'); ?>
+	</div>
 <?php endif; ?>
 <?php if(shopp('product','has-addons')): ?>
 	<p class="addons">
@@ -60,7 +60,7 @@
 	</p>
 <?php endif; ?>
 
-<p><?php shopp('product','quantity','class=selectall&input=menu'); ?> <?php shopp('product','addtocart','value=Ajouter au panier&class=valid&class=green right'); ?></p>
+<p><?php shopp('product','quantity','class=selectall&input=menu&label=Quantité'); ?> <?php shopp('product','addtocart','value=Ajouter au panier&class=valid&class=green right'); ?></p>
 
 </form>
 

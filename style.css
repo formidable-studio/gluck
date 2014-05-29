@@ -875,6 +875,12 @@ input, button{
  	margin-bottom:8px;
  }
 
+ #shopp div p label{
+ 	font-size: 14px;
+	display: inline-block;
+	width: 80px;
+ }
+
  #shopp .right h3.price{
  	font-family:'proxima-nova', Arial, Helvetica, sans-serif;
  	font-size: 24px;
@@ -983,21 +989,19 @@ input, button{
  	bottom:10px;
  	/*left: 385px;
  	right: 0;*/
- 	left: 0;
- 	width: 360px;
+ 	left: 295px;
+ 	/*width: 360px;*/
  	/*margin-top:60px;*/
  	/*background: white;*/
  	display: block;
  	/*border-top: solid white 8px;*/
- 	text-align: center;
+ 	/*text-align: center;*/
  }
 
  #shopp ul#gallery-nav li{
  	/*display: table-cell;
  	vertical-align: bottom;*/
  	/*float: left;*/
-
- 	display: inline-block;
  	margin: 0;
  	padding: 0;
  	margin-right:2px;
@@ -1008,12 +1012,12 @@ input, button{
  }
 
   #shopp ul#gallery-nav li img{
-  	background: #b0f7df;
-  	padding: 2px;
+  	/*background: #b0f7df;*/
+  	/*padding: 2px;*/
   	border: solid 2px white;
  	border-radius: 50px;
- 	width:60px;
- 	height: 60px;
+ 	width:50px;
+ 	height: 50px;
  }
 
  /* PANNIER / CART */
