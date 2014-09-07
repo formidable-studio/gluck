@@ -23,11 +23,11 @@ if ( !is_super_admin() || !is_admin_bar_showing() ) {
 				<img src="<?php bloginfo( 'template_url' ); ?>/img/accueil/fleur.png" style="position:absolute;left:-300px;" data-anchor-target="#accueil" data-0="top:50px;" data-1000="top:300px;" nopin="true" />
 				<img src="<?php bloginfo( 'template_url' ); ?>/img/accueil/saut-transparent.png" style="position:absolute;left:30px;z-index:200" data-anchor-target="#accueil" data-0="top:38px;" data-300="top:-90px;" id="girl" nopin="true" />
 				<img src="<?php bloginfo( 'template_url' ); ?>/img/accueil/forme1.png" style="position:absolute;left:20px;" data-anchor-target="#accueil" data-0="top:300px;" data-300="top:-50px;" nopin="true" />    
-				<img src="<?php bloginfo( 'template_url' ); ?>/img/accueil/forme2.png" style="position:absolute;left:668px;" data-anchor-target="#accueil" data-0="top:255px;" data-2300="top:600px;" nopin="true" />  
+				<img src="<?php bloginfo( 'template_url' ); ?>/img/accueil/forme2.png" style="position:absolute;left:668px;" data-anchor-target="#accueil" data-0="top:255px;" data-2300="top:600px;" nopin="true" />
 				<img src="<?php bloginfo( 'template_url' ); ?>/img/accueil/forme3.png" style="position:absolute;left:850px;" data-anchor-target="#accueil" data-0="top:195px;" data-1000="top:-100px;" nopin="true" />
 				<img src="<?php bloginfo( 'template_url' ); ?>/img/accueil/forme4.png" style="position:absolute;left:668px;" data-anchor-target="#accueil" data-0="top:610px;" data-1000="top:-100px;" nopin="true" />   
 				<img src="<?php bloginfo( 'template_url' ); ?>/img/logo-gluck.png" style="position:absolute;left:520px;top:252px;" data-anchor-target="#accueil" data-0="top:252px;" data-1000="top:-200px;" alt="Glück (!)" id="logo-gluck" nopin="true" />
-				<p id="soustitre" style="position:absolute;left:650px;top:400px;" data-anchor-target="#accueil" data-0="top:400px;" data-1000="top:100px;"><?php bloginfo('description') ?></p>
+				<p id="soustitre" style="position:absolute;left:650px;top:430px;" data-anchor-target="#accueil" data-0="top:430px;" data-1000="top:100px;"><?php bloginfo('description') ?></p>
 			</div>
 
 			<?php
@@ -110,8 +110,8 @@ if ( !is_super_admin() || !is_admin_bar_showing() ) {
 	<a title="credit" name="credit"></a>
 	<div id="credit" class="rubrique">
 		<div class="skrollr_bloc">
-			<p>© Glück 2014 — N° Siret : 47976416900021 — <a href="http://www.gluckfactory.eu/mentions-legales/" >Mentions légales</a> — 
-				Conception graphique : <a href="http://www.formidable-studio.net" target="_blank">Formidable</a></p>
+			<p>© Glück 2014 — N° Siret : 47976416900021 — <a href="mentions-legales/" >Mentions légales</a> — 
+				<a href="faq/">FAQ</a> - Conception graphique : <a href="http://www.sophieblum.net" target="_blank">Sophie Blum</a> & <a href="http://www.loichorellou.net" target="_blank">Loïc Horellou</a></p>
 			</div>  	
 		</div>
 	</div>

@@ -11,7 +11,7 @@
 
 <body>
 <div id="global">
-	<div id="fleur"></div>
+	<!--<div id="fleur"></div>-->
 	<div id="forme1"></div>
 	<div id="saut"></div>
 	<div id="forme2"></div>
