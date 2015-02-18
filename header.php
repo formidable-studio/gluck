@@ -18,7 +18,7 @@
   <?php wp_head(); ?>
 
   <!-- MONSERRAT -->
-  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
   <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/scrollpane/jquery.jscrollpane.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
